@@ -1,18 +1,15 @@
 import React, { Component } from "react";
-import logo from "../logo.svg";
-import "../css/App.css";
+import PropTypes from "prop-types";
+import Header from "./Header";
+import food from "../food";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="mamak">
+        <div className="menu">
+          <Header tagline="It's always time to eat" />
+        </div>
       </div>
     );
   }
