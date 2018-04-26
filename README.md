@@ -1,1 +1,1 @@
-﻿A simple store that sells climbing gear. Created with React.
+Order delicious Malaysian food online! Created with React.
