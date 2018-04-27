@@ -28,7 +28,7 @@ const food = {
 
   item4: {
     name: "Fish Head Curry",
-    image: "/images/dish-head-curry.jpg",
+    image: "/images/fish-head-curry.jpg",
     desc:
       "THe head of a red snapper stewed with vegetables in Kerala-styled curry. Not for the faint-hearted.",
     price: 2100,
@@ -38,8 +38,7 @@ const food = {
   item5: {
     name: "Satay",
     image: "/images/satay.jpg",
-    desc:
-      "Barbequed meat on skewers, served with a sweet, peanut-based sauce.",
+    desc: "Barbequed meat on skewers, served with a sweet, peanut-based sauce.",
     price: 1000,
     status: "available"
   },
@@ -56,7 +55,8 @@ const food = {
   item7: {
     name: "Putri Salat",
     image: "/images/putri-salat.jpg",
-    desc: "A dual-layer steamed cake with a glutinous rice base and pandan custard top. Insanely addictive.",
+    desc:
+      "A dual-layer steamed cake with a glutinous rice base and pandan custard top. Insanely addictive.",
     price: 600,
     status: "available"
   },
@@ -66,7 +66,7 @@ const food = {
     image: "/images/dumplings.jpg",
     desc:
       "These rice cakes are filled with a mixture of kicama, minced pork, mushroom, and coriander. The silky skin is very different to the typical Chinese dumpling.",
-    price:1500,
+    price: 1500,
     status: "available"
   }
 };

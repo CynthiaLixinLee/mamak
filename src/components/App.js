@@ -16,6 +16,15 @@ class App extends Component {
     match: PropTypes.object
   };
 
+  addDish = dish => {
+    // 1. Take a copy of the existing state
+    const dishes = { ...this.state.dishes };
+    // 2. Add our new dish to that dishes variable
+    dishes[`dish${Date.now()}`] = dish;
+    // 3. Set the new dishes object to state
+    this.setState({ dishes });
+  };
+
   loadSampleFood = () => {
     this.setState({ dishes: food });
   };
@@ -32,7 +41,10 @@ class App extends Component {
           </ul>
         </div>
         <Order />
-        <Inventory />
+        <Inventory
+          addDish={this.addDish}
+          loadSampleFood={this.loadSampleFood}
+        />
       </div>
     );
   }

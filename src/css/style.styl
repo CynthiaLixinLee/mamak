@@ -1,6 +1,7 @@
 // Import all partials
 @require './_*.styl'
 
+/* Header and tagline */
 header.top
   text-align center
   h1
@@ -25,7 +26,7 @@ header.top
       background black
       position absolute
       width 130%
-      height 1px
+      height 3px
       content ''
       top 5px
       margin-left -15%
@@ -40,11 +41,23 @@ header.top
   max-width:1500px
   margin 0 auto
   margin-top 5vh
-  flex 1 4 auto
-  padding 2rem
-  border 1rem double lighten(black,10%)
-  position relative
-  background white
+  & > *
+    flex 1 4 auto
+    padding 2rem
+    border 1rem double lighten(black,10%)
+    position relative
+    background white
+    overflow scroll
+    &:first-child
+      flex-shrink 1 // take 4x the extra room
+      flex-basis 50%
+    &:nth-child(2)
+      border-left 0
+      border-right 0
+      min-width 300px
+    &:last-child
+      flex-shrink 1 // take 4x the extra room
+      flex-basis 50%
 
 
 ul
@@ -88,7 +101,38 @@ ul.order
         // transition all 0.5s
 
 
-// Menu Styles
+/* Inventory Style */
+.dish-edit
+  margin-bottom 20px
+  border 2px solid black
+  overflow hidden
+  display flex
+  flex-wrap wrap
+  input, textarea, select
+    width 33.33%
+    padding 10px
+    line-height 1
+    font-size 1.2rem
+    border 0
+    border-bottom 1px solid black
+    border-right 1px solid black
+    appearance none
+    border-radius 0
+    background white
+    &:focus
+      outline 0
+      background lighten(orange, 85%)
+  textarea
+    width 100%
+  input:last-of-type
+    width 100%
+  button
+    width 100%
+    border 0
+
+
+
+/* Menu Style */
 .list-of-dish
   border-top 2px solid black
   border-bottom 1px solid black
@@ -113,11 +157,73 @@ ul.order
     justify-content space-between
     align-items center
   .price
-    font-size 1.4rem
+    font-size 2rem
     // color orange
     justify-content flex-end
-    // font-family 'Open Sans Condensed'
   img
     float left
     width 150px
     margin-right 1rem
+
+
+button, input[type=submit]
+  text-transform uppercase
+  background none
+  border 1px solid black
+  font-weight 600
+  font-size 1.5rem
+  font-family 'Open Sans'
+  transition all 0.2s
+  position relative
+  z-index 2
+  &[disabled]
+    color red
+    background white
+    border-color red
+    transform rotate(-10deg) scale(2) translateX(50%) translateY(-50%)
+    &:hover
+      color red
+      cursor not-allowed
+    &:after
+      display none
+  &:after
+    content ''
+    z-index -1
+    display block
+    background black
+    position absolute
+    width 100%
+    height 0
+    left 0
+    top 0
+    transition all 0.2s
+  &:hover, &:focus
+    color white
+    outline 0
+    &:after
+      height 100%
+  // variants
+  &.warning
+    &:after
+      background red
+  &.success
+    &:after
+      background green
+
+  &.github, &.facebook
+    border 0
+    display block
+    margin-bottom 2rem
+    width 100%
+    color white
+    padding 2rem
+
+  &.github
+    background #82D465
+    &:after
+      background darken(#82D465, 20%)
+
+  &.facebook
+    background #3864A3
+    &:after
+      background darken(#3864A3, 20%)
