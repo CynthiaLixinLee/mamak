@@ -12,7 +12,7 @@ const food = {
     name: "Roti Canai",
     image: "/images/roti-canai.jpg",
     desc:
-      "A classic Malaysian breakfast. Flaky and crispy on the outside, steaming and chewy on the inside. Paired  best with some lentil dal.",
+      "A classic Malaysian breakfast. Flaky and crispy on the outside, and chewy on the inside. Paired best with some lentil dal.",
     price: 600,
     status: "available"
   },
@@ -65,7 +65,7 @@ const food = {
     name: "Jicama Dumplings",
     image: "/images/dumplings.jpg",
     desc:
-      "These rice cakes are filled with a mixture of kicama, minced pork, mushroom, and coriander. The silky skin is very different to the typical Chinese dumpling.",
+      "These rice cakes are filled with a mixture of jicama, minced pork, mushroom, and coriander.",
     price: 1500,
     status: "available"
   }

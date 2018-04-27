@@ -468,6 +468,7 @@ ul.order li span.count span {
   width: 150px;
   margin-right: 1rem;
 }
+/* Button styles */
 button,
 input[type=submit] {
   text-transform: uppercase;
