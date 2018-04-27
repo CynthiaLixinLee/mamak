@@ -1,0 +1,123 @@
+// Import all partials
+@require './_*.styl'
+
+header.top
+  text-align center
+  h1
+    font-size 14.4rem
+    display flex
+    justify-content: center;
+  h3
+    margin 0
+    font-size 2rem
+    color orange
+    position relative
+    display inline-block
+    span
+      background white
+      position relative
+      z-index 2
+      padding-left 1rem
+      padding-right 1rem
+    &:before, &:after
+      display block
+      z-index 1
+      background black
+      position absolute
+      width 130%
+      height 1px
+      content ''
+      top 5px
+      margin-left -15%
+    &:after
+      top auto
+      bottom 7px
+
+
+.mamak
+  display flex
+  height 90vh
+  max-width:1500px
+  margin 0 auto
+  margin-top 5vh
+  flex 1 4 auto
+  padding 2rem
+  border 1rem double lighten(black,10%)
+  position relative
+  background white
+
+
+ul
+  list-style none
+  margin 0
+  padding 0
+
+ul.order
+  // Default state
+  li
+    border-bottom 1px solid black
+    padding 2rem 0
+    display flex
+    font-size 1.4rem
+    justify-content space-between
+    align-items center
+    &:hover
+      // padding 1rem 0
+      button
+        display inline
+    button
+      border 0
+      display none
+      line-height 1
+      padding 0
+    &.total
+      font-weight 600
+      border-bottom 3px solid black
+      border-top 3px double black
+    &.unavailable
+      text-decoration line-through
+      background lighten(red, 80%)
+    .price
+      font-size 1.2rem
+    span.count
+      position relative
+      overflow hidden
+      float left // only works if it's floated?!
+      span
+        display inline-block
+        // transition all 0.5s
+
+
+// Menu Styles
+.list-of-dish
+  border-top 2px solid black
+  border-bottom 1px solid black
+  padding-top 5px
+  margin-top 2rem
+  transform translateZ(0);
+
+.menu-dish
+  border-bottom 2px solid black
+  border-top 1px solid black
+  padding-bottom 2rem
+  padding-top 2rem
+  margin-bottom 5px
+  clear both
+  overflow hidden
+  p
+    margin 0
+    font-size 1.8rem
+  .dish-name
+    margin 0
+    display flex
+    justify-content space-between
+    align-items center
+  .price
+    font-size 1.4rem
+    // color orange
+    justify-content flex-end
+    // font-family 'Open Sans Condensed'
+  img
+    float left
+    width 150px
+    margin-right 1rem
