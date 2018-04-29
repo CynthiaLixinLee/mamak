@@ -5,16 +5,28 @@ import Order from "./Order";
 import Inventory from "./Inventory";
 import Dish from "./Dish";
 import food from "../food";
+import base from "../base";
 
 class App extends Component {
   state = {
-    dishes: {},
+    dishes: { ...food }, // An object with the list of dishes
     order: {}
   };
 
   static propTypes = {
     match: PropTypes.object
   };
+
+  componentDidMount() {
+    this.ref = base.syncState("dishes", {
+      context: this,
+      state: "dishes"
+    });
+  }
+
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
+  }
 
   addDish = dish => {
     // 1. Take a copy of the existing state
@@ -42,10 +54,6 @@ class App extends Component {
     this.setState({ dishes });
   };
 
-  loadSampleFood = () => {
-    this.setState({ dishes: food });
-  };
-
   addToOrder = key => {
     // 1. take a copy of state
     const order = { ...this.state.order };
@@ -61,6 +69,10 @@ class App extends Component {
     this.setState({ order });
   };
 
+  loadDefaultMenu = () => {
+    this.setState({ dishes: food });
+  };
+
   render() {
     return (
       <div className="mamak">
@@ -71,7 +83,7 @@ class App extends Component {
               <Dish
                 key={key}
                 index={key}
-                details={this.state.dishes[key]}
+                details={this.state.dishes[key]} // Pass all the info to Dish.js
                 addToOrder={this.addToOrder}
               />
             ))}
@@ -86,8 +98,8 @@ class App extends Component {
           addDish={this.addDish}
           updateDish={this.updateDish}
           deleteDish={this.deleteDish}
-          loadSampleFood={this.loadSampleFood}
           dishes={this.state.dishes}
+          loadDefaultMenu={this.loadDefaultMenu}
         />
       </div>
     );

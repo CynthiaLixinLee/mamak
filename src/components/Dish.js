@@ -14,6 +14,7 @@ class Dish extends React.Component {
     addToOrder: PropTypes.func
   };
   render() {
+    // ES6 destructuring - setting mutiple const
     const { image, name, price, desc, status } = this.props.details;
     const isAvailable = status === "available";
     return (

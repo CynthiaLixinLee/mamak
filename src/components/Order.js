@@ -16,7 +16,7 @@ class Order extends React.Component {
     if (!isAvailable) {
       return (
         <li key={key}>
-          Sorry {dish ? dish.name : "dish"} is no longer available
+          Sorry, {dish ? dish.name : "dish"} is no longer available.
         </li>
       );
     }

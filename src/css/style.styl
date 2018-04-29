@@ -41,23 +41,24 @@ header.top
   max-width:1500px
   margin 0 auto
   margin-top 5vh
+  border 1rem double lighten(black,10%)
+  background white
   & > *
     flex 1 4 auto
     padding 2rem
-    border 1rem double lighten(black,10%)
     position relative
-    background white
-    overflow scroll
     &:first-child
       flex-shrink 1 // take 4x the extra room
       flex-basis 50%
+      overflow scroll
     &:nth-child(2)
-      border-left 0
-      border-right 0
       min-width 300px
+      border-left 0.3rem dotted lighten(black,30%)
+      border-right 0.3rem dotted lighten(black,30%)
     &:last-child
       flex-shrink 1 // take 4x the extra room
       flex-basis 50%
+      overflow scroll
 
 
 ul
