@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { formatPrice } from "../helpers";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 class Order extends React.Component {
   static propTypes = {
@@ -12,20 +13,44 @@ class Order extends React.Component {
   renderOrder = key => {
     const dish = this.props.dishes[key];
     const count = this.props.order[key];
-    const isAvailable = dish.status === "available";
+    const isAvailable = dish && dish.status === "available";
+    const transitionOptions = {
+      classNames: "order",
+      key,
+      timeout: { enter: 500, exit: 500 }
+    };
+    // Ensure that dish is loaded. This is to prevent issues where there is a lag while the page gets info from localStorage
+    if (!dish) return null;
     if (!isAvailable) {
       return (
-        <li key={key}>
-          Sorry, {dish ? dish.name : "dish"} is no longer available.
-        </li>
+        <CSSTransition {...transitionOptions}>
+          <li key={key}>
+            Sorry, {dish ? dish.name : "dish"} is no longer available.
+          </li>
+        </CSSTransition>
       );
     }
     return (
-      <li key={key}>
-        {count} x {dish.name}
-        {formatPrice(count * dish.price)}
-        <button onClick={() => this.props.removeFromOrder(key)}>&times;</button>
-      </li>
+      <CSSTransition {...transitionOptions}>
+        <li key={key}>
+          <span>
+            <TransitionGroup component="span" className="count">
+              <CSSTransition
+                classNames="count"
+                key={count}
+                timeout={{ enter: 500, exit: 500 }}
+              >
+                <span>{count}</span>
+              </CSSTransition>
+            </TransitionGroup>
+            x {dish.name}
+            <span className="price">{formatPrice(count * dish.price)}</span>
+            <button onClick={() => this.props.removeFromOrder(key)}>
+              &times;
+            </button>
+          </span>
+        </li>
+      </CSSTransition>
     );
   };
   render() {
@@ -42,7 +67,9 @@ class Order extends React.Component {
     return (
       <div className="order-wrap">
         <h2>Order</h2>
-        <ul className="order">{orderIds.map(this.renderOrder)}</ul>
+        <TransitionGroup component="ul" className="order">
+          {orderIds.map(this.renderOrder)}
+        </TransitionGroup>
         <div className="total">
           Total:
           <strong>{formatPrice(total)}</strong>

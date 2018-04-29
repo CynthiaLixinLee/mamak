@@ -5,7 +5,7 @@ import { formatPrice } from "../helpers";
 class EditDish extends React.Component {
   static propTypes = {
     dish: PropTypes.shape({
-      // image: PropTypes.string,
+      image: PropTypes.string,
       name: PropTypes.string,
       price: PropTypes.number,
       desc: PropTypes.string,

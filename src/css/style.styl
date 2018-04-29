@@ -67,7 +67,6 @@ ul
   padding 0
 
 ul.order
-  // Default state
   li
     border-bottom 1px solid black
     padding 2rem 0
@@ -76,30 +75,27 @@ ul.order
     justify-content space-between
     align-items center
     &:hover
-      // padding 1rem 0
       button
         display inline
     button
       border 0
       display none
       line-height 1
+      margin-left 30px
       padding 0
-    &.total
-      font-weight 600
-      border-bottom 3px solid black
-      border-top 3px double black
-    &.unavailable
-      text-decoration line-through
-      background lighten(red, 80%)
     .price
       font-size 1.2rem
     span.count
       position relative
       overflow hidden
-      float left // only works if it's floated?!
       span
         display inline-block
-        // transition all 0.5s
+.total
+  font-weight 600
+  padding 1rem 0
+  border-bottom 0.5rem double black
+  border-top 0.5rem double black
+
 
 
 /* Inventory Style */
@@ -159,7 +155,6 @@ ul.order
     align-items center
   .price
     font-size 2rem
-    // color orange
     justify-content flex-end
   img
     float left

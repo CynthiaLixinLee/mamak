@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import Header from "./Header";
 import Order from "./Order";
 import Inventory from "./Inventory";
@@ -13,15 +12,20 @@ class App extends Component {
     order: {}
   };
 
-  static propTypes = {
-    match: PropTypes.object
-  };
-
   componentDidMount() {
+    // If there is local storage of 'order', reinstate it
+    const localStorageRef = localStorage.getItem("order");
+    if (localStorageRef) {
+      this.setState({ order: JSON.parse(localStorageRef) });
+    }
     this.ref = base.syncState("dishes", {
       context: this,
       state: "dishes"
     });
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("order", JSON.stringify(this.state.order));
   }
 
   componentWillUnmount() {
