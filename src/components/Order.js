@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Popup from "reactjs-popup";
 import { formatPrice } from "../helpers";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -74,6 +75,16 @@ class Order extends React.Component {
           Total:
           <strong>{formatPrice(total)}</strong>
         </div>
+        <Popup
+          trigger={<button>Place Order</button>}
+          modal
+          closeOnDocumentClick
+        >
+          <div>
+            Thank you for placing your order. You will receive an email
+            confirmation shortly.
+          </div>
+        </Popup>
       </div>
     );
   }
