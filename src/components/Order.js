@@ -44,7 +44,7 @@ class Order extends React.Component {
                 <span>{count}</span>
               </CSSTransition>
             </TransitionGroup>
-            x {dish.name}
+            {" "}x{" "} {dish.name}
             <span className="price">{formatPrice(count * dish.price)}</span>
             <button onClick={() => this.props.removeFromOrder(key)}>
               &times;
