@@ -28,7 +28,8 @@ Issues
 
 + Testing - I wrote a test for the `formatPrice` function (which converts cents to dollars), and for my Login component (to ensure that the slogan rendered out correctly). I realised that I need to learn more about testing, as I was unsure if I should have include for integration tests for the app.
 
-+ Unfortunately, my `AddDish` functionality (the ability to create a new menu item from scratch in the inventory) worked perfectly in development, but not in production. I will resolve this issue soon.
++ Unfortunately, my `AddDish` functionality (the ability to create a new menu item from scratch in the inventory) worked perfectly in development, but not in production. 
+** UPDATE: 8th May 2018: This issue has been resolved.
 
  
 Future Improvements
