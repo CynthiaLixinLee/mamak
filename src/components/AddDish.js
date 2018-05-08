@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 class AddDish extends React.Component {
   nameRef = React.createRef();
@@ -7,8 +8,12 @@ class AddDish extends React.Component {
   descRef = React.createRef();
   imageRef = React.createRef();
 
+  static propTypes = {
+    addDish: PropTypes.func
+  };
+
   createDish = event => {
-    // 1.  stop the form from submitting
+    // stop the form from submitting
     event.preventDefault();
     const dish = {
       name: this.nameRef.value.value,
@@ -35,8 +40,7 @@ class AddDish extends React.Component {
           <option value="available">Available!</option>
           <option value="unavailable">Sold Out!</option>
         </select>
-
-        <textarea name="desc" ref={this.descRef} placeholder="Desc" />
+        <textarea name="desc" ref={this.descRef} type="text" placeholder="Desc" />
         <input
           name="image"
           ref={this.imageRef}

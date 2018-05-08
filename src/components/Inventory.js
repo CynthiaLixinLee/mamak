@@ -87,6 +87,7 @@ class Inventory extends React.Component {
         <button onClick={this.props.loadDefaultMenu}>
           Reload Default Menu
         </button>
+        {logout}
       </div>
     );
   }
