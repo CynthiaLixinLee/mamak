@@ -10,38 +10,35 @@ class Inventory extends React.Component {
   static propTypes = {
     Dishes: PropTypes.object,
     updateDish: PropTypes.func,
-    deleteDish: PropTypes.func
+    deleteDish: PropTypes.func,
   };
   // This state is local to this component
   state = {
     uid: null,
-    owner: null
+    owner: null,
   };
 
   // Everytime we load page, firebase will check if we're logged in
   componentDidMount() {
-    firebase.auth().onAuthStateChanged(user => {
+    firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.authHandler({ user });
       }
     });
   }
 
-  authHandler = async authData => {
+  authHandler = async (authData) => {
     const storeOwner = await base.fetch("owner", { context: this });
     // Set the state of the inventory component to reflect current user
     this.setState({
       uid: authData.user.uid,
-      owner: storeOwner
+      owner: storeOwner,
     });
   };
 
-  authenticate = provider => {
+  authenticate = (provider) => {
     const authProvider = new firebase.auth[`${provider}AuthProvider`]();
-    firebaseApp
-      .auth()
-      .signInWithPopup(authProvider)
-      .then(this.authHandler);
+    firebaseApp.auth().signInWithPopup(authProvider).then(this.authHandler);
   };
 
   logout = async () => {
@@ -74,7 +71,7 @@ class Inventory extends React.Component {
     return (
       <div className="inventory">
         <h2>Inventory</h2>
-        {Object.keys(this.props.dishes).map(key => (
+        {Object.keys(this.props.dishes).map((key) => (
           <EditDish
             key={key}
             index={key}

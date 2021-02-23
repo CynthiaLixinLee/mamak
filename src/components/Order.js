@@ -8,17 +8,17 @@ class Order extends React.Component {
   static propTypes = {
     dishes: PropTypes.object,
     order: PropTypes.object,
-    removeFromOrder: PropTypes.func
+    removeFromOrder: PropTypes.func,
   };
 
-  renderOrder = key => {
+  renderOrder = (key) => {
     const dish = this.props.dishes[key];
     const count = this.props.order[key];
     const isAvailable = dish && dish.status === "available";
     const transitionOptions = {
       classNames: "order",
       key,
-      timeout: { enter: 500, exit: 500 }
+      timeout: { enter: 500, exit: 500 },
     };
     // Ensure that dish is loaded. This is to prevent issues where there is a lag while the page gets info from localStorage
     if (!dish) return null;
@@ -39,12 +39,12 @@ class Order extends React.Component {
               <CSSTransition
                 classNames="count"
                 key={count}
-                timeout={{ enter: 500, exit: 500 }}
+                timeout={{ enter: 1500, exit: 1500 }}
               >
                 <span>{count}</span>
               </CSSTransition>
-            </TransitionGroup>
-            {" "}x{" "} {dish.name}
+            </TransitionGroup>{" "}
+            x {dish.name}
             <span className="price">{formatPrice(count * dish.price)}</span>
             <button onClick={() => this.props.removeFromOrder(key)}>
               &times;

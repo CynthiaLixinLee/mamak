@@ -19,32 +19,29 @@
   transition: 0.5s;
 }
 .order-exit.order-exit-active {
-  -webkit-transform: translateX(120%);
-          transform: translateX(120%);
+  -webkit-transform: translateX(80%);
+          transform: translateX(80%);
   padding: 0 !important;
+  opacity: 0;
 }
 .count-enter {
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  opacity: 0;
 }
 .count-enter.count-enter-active {
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
+  opacity: 1;
 }
 .count-exit {
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
+  opacity: 0.2;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
   position: absolute;
   left: 0;
   bottom: 0;
 }
 .count-exitcount-exit-active {
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
+  opacity: 0;
 }
 @font-face {
   font-family: 'gist_upright_extrabold';

@@ -12,20 +12,21 @@
   transform translateX(0)
   transition 0.5s
   &.order-exit-active
-    transform translateX(120%)
+    transform translateX(80%)
     padding 0 !important
+    opacity 0
 
 .count-enter
-  transition 0.5s
-  transform translateY(100%)
+  transition .5s ease-in-out
+  opacity 0
   &.count-enter-active
-    transform translateY(0)
+    opacity 1
 
 .count-exit
-  transition 0.5s
-  transform translateY(0)
-  position absolute // This is to ensure that the numbers overlap
+  opacity 0.2
+  transition .5s ease-in-out
+  position absolute
   left 0
   bottom 0
   &count-exit-active
-    transform translateY(-100%)
+    opacity 0

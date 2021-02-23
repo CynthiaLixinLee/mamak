@@ -9,9 +9,9 @@ class Dish extends React.Component {
       name: PropTypes.string,
       price: PropTypes.number,
       desc: PropTypes.string,
-      status: PropTypes.string
+      status: PropTypes.string,
     }),
-    addToOrder: PropTypes.func
+    addToOrder: PropTypes.func,
   };
   render() {
     // ES6 destructuring - setting mutiple const
