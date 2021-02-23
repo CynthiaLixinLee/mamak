@@ -19,7 +19,7 @@
     "react-test-renderer": "^16.3.2",
     "react-transition-group": "^2.2.1",
     "reactjs-popup": "^1.1.1",
-    "serve": "^6.5.6",
+    "serve": "^10.1.2",
     "stylus": "0.54.5"
   },
   "scripts": {
